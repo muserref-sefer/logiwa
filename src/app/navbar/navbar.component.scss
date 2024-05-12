@@ -1,0 +1,28 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--header-background-color);
+  color: var(--header-color);
+  padding: 16px;
+  width: 100%;
+
+  .logo {
+    font-size: 36px;
+  }
+}
+
+.language-switcher {
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  text-transform: uppercase;
+  box-shadow: none;
+  border: none;
+  margin: 0 10px
+}
+
+.switchers {
+  display: flex;
+  align-items: center;
+}

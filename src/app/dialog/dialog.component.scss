@@ -1,0 +1,33 @@
+.dialog {
+  padding: 16px;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 475px;
+  display: flex;
+  flex-wrap: wrap;
+
+  .form-input {
+    margin: 10px;
+
+    .mat-mdc-form-field {
+      width: 100%;
+    }
+  }
+
+  .alert {
+    margin-bottom: 10px;
+    color: red;
+  }
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.create-btn {
+  margin-left: 10px;
+}
+

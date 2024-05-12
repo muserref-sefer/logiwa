@@ -1,0 +1,89 @@
+<div class="filter-container">
+  <div>
+    <mat-form-field class="filter-input">
+      <mat-label>{{ 'Search' | translate }}</mat-label>
+      <input matInput (keyup)="searchPlayer($event)" #input>
+    </mat-form-field>
+    <mat-form-field class="filter-input">
+      <mat-label>{{ 'Height' | translate }}</mat-label>
+      <input matInput (keyup)="searchPlayerByHeight($event)" #input>
+    </mat-form-field>
+    <mat-form-field class="filter-input">
+      <mat-label>{{ 'Country' | translate }}</mat-label>
+      <input matInput (keyup)="searchPlayerByCountry($event)" #input>
+    </mat-form-field>
+    <mat-form-field class="filter-input">
+      <mat-label>{{ 'Weight' | translate }}</mat-label>
+      <input matInput (keyup)="searchPlayerByWeight($event)" #input>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button class="create-btn" (click)="openDialog('create')">{{ 'Create Player' | translate }}</button>
+</div>
+
+<div *ngIf="loading" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!loading">
+  <div *ngIf="filteredPlayers.length == 0 && filter" class="not-found">{{ 'Not Found' | translate }}</div>
+  <div class="mat-elevation-z8">
+    <mat-table #table class="player-table" mat-table matSort (matSortChange)="sortData($event)" [dataSource]="filter ? filteredPlayers : players" *ngIf="filteredPlayers.length != 0 || !filter">
+      <ng-container matColumnDef="full_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="full_name">{{ 'Full Name' | translate }}</th>
+        <td mat-cell *matCellDef="let player" class="username" (click)="openDialog('edit', player)">{{player.first_name}} {{player.last_name}}</td>
+      </ng-container>
+      <ng-container matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="country">{{ 'Country' | translate }}</th>
+        <td mat-cell *matCellDef="let player">{{player.country || '-'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="team">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="team">{{ 'Team' | translate }}</th>
+        <td mat-cell *matCellDef="let player">{{player.team.name || '-'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="height">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="height">{{ 'Height' | translate }}</th>
+        <td mat-cell *matCellDef="let player">{{player.height || '-'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="weight">{{ 'Weight' | translate }}</th>
+        <td mat-cell *matCellDef="let player">{{player.weight || '-'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="draft_number">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="draft_number">{{ 'College Number' | translate }}</th>
+        <td mat-cell *matCellDef="let player">{{player.draft_number || '-'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="draft_year">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="draft_year">{{ 'Draft Year' | translate }}</th>
+        <td mat-cell *matCellDef="let player">{{player.draft_year || '-'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="jersey_number">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="jersey_number">{{ 'Jersey Number' | translate }}</th>
+        <td mat-cell *matCellDef="let player">{{player.jersey_number || '-'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>{{ 'Action' | translate }}</th>
+        <td mat-cell *matCellDef="let player; let i = index;">
+          <div class="popover-container">
+            <button mat-button [matMenuTriggerFor]="menu" #menuTrigger class="ellipsis-btn"><mat-icon>more_vert</mat-icon></button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="openDialog('edit', player)"><mat-icon fontIcon="edit"></mat-icon>{{ "Edit" | translate }}</button>
+              <button mat-menu-item (click)="openConfirmationDialog(player.id)"><mat-icon fontIcon="delete"></mat-icon>{{ "Delete" | translate }}</button>
+            </mat-menu>
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-row"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+    </mat-table>
+  </div>
+  <mat-paginator 
+    *ngIf="filteredPlayers.length != 0 || !filter"
+    #paginator
+    (page)="pageChangeEvent($event)"
+    [length]="totalRecords"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    [pageSizeOptions]="[5, 10, 20, 50, 100]"
+  >
+  </mat-paginator>
+</div>

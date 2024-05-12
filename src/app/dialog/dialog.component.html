@@ -1,0 +1,74 @@
+<div class="dialog">
+  <form [formGroup]="playerForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-container">
+      <div class="form-input">
+        <mat-form-field>
+          <mat-label>{{ 'Name' | translate }}</mat-label>
+          <input matInput formControlName="first_name" [(ngModel)]="data.player.first_name" >
+        </mat-form-field>
+        <div *ngIf="playerForm.controls['first_name'].invalid && (playerForm.controls['first_name'].dirty || playerForm.controls['first_name'].touched)" class="alert alert-danger">
+          <span *ngIf="playerForm.controls['first_name'].errors?.['required']">
+            {{ "This field is required." | translate }}
+          </span>
+        </div>
+      </div>
+      <div class="form-input">
+        <mat-form-field>
+          <mat-label>{{ 'Surname' | translate }}</mat-label>
+          <input matInput formControlName="last_name" [(ngModel)]="data.player.last_name"  #input>
+        </mat-form-field>
+        <div *ngIf="playerForm.controls['last_name'].invalid && (playerForm.controls['last_name'].dirty || playerForm.controls['last_name'].touched)" class="alert alert-danger">
+          <div *ngIf="playerForm.controls['last_name'].errors?.['required']">
+            {{ "This field is required." | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="form-input">
+        <mat-form-field>
+          <mat-label>{{ 'Country' | translate }}</mat-label>
+          <input matInput formControlName="country" [(ngModel)]="data.player.country"  #input>
+        </mat-form-field>
+        <div *ngIf="playerForm.controls['country'].invalid && (playerForm.controls['country'].dirty || playerForm.controls['country'].touched)" class="alert alert-danger">
+          <div *ngIf="playerForm.controls['country'].errors?.['required']">
+            {{ "This field is required." | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="form-input">
+        <mat-form-field>
+          <mat-label>{{ 'Team' | translate }}</mat-label>
+          <input matInput formControlName="team" [(ngModel)]="data.player.team.name"  #input>
+        </mat-form-field>
+        <div *ngIf="playerForm.controls['team'].invalid && (playerForm.controls['team'].dirty || playerForm.controls['team'].touched)" class="alert alert-danger">
+          <div *ngIf="playerForm.controls['team'].errors?.['required']">
+            This field is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-input">
+        <mat-form-field>
+          <mat-label>{{ 'Height' | translate }}</mat-label>
+          <input matInput formControlName="height" [(ngModel)]="data.player.height"  #input>
+        </mat-form-field>
+      </div>
+      <div class="form-input">
+        <mat-form-field>
+          <mat-label>{{ 'Weight' | translate }}</mat-label>
+          <input matInput formControlName="weight" [(ngModel)]="data.player.weight"  #input>
+        </mat-form-field>
+      </div>
+      <div class="form-input">
+        <mat-form-field>
+          <mat-label>{{ 'Draft Year' | translate }}</mat-label>
+          <input matInput formControlName="draft_year" [(ngModel)]="data.player.draft_year"  #input>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="btn-container">
+      <button mat-button type="button" (click)="onNoClick()" color="warn" >{{ 'Cancel' | translate }}</button>
+      <button *ngIf="data.type == 'create'" type="submit" mat-raised-button class="create-btn" color="primary">{{ 'Create Player' | translate }}</button>
+      <button *ngIf="data.type == 'edit'" type="submit" mat-raised-button class="create-btn" color="primary">{{ 'Edit Player' | translate }}</button>
+    </div>
+  </form>
+</div>

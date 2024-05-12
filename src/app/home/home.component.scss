@@ -1,0 +1,91 @@
+$small: 576px;
+
+.player-table {
+  background-color: var(--main-content-background-color);
+  color: var(--main-content-color);
+  overflow: scroll;
+  max-width: 100%;
+  overflow-x: scroll;
+  display: table;
+  width: 100%;
+
+  tr, td, th {
+    color: var(--main-content-color);
+  }
+
+  td,th {
+    border-color: var(--border-color);
+    min-width: 160px;
+    vertical-align: middle !important;
+  }
+
+  .ellipsis-btn {
+    min-width: 30px;
+    padding: 0;
+    background-color: var(--header-background-color);
+  
+    .mat-icon {
+      color: #fff;
+      margin: 0;
+    }
+  }
+}
+
+.mat-elevation-z8 {    
+  overflow-x: auto;
+}
+
+.not-found {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  font-size: 20px;
+  margin-top: 50px;
+}
+
+.mat-mdc-paginator {
+  background-color: #f3f3f3;
+  padding: 16px 0;
+}
+
+.filter-container {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--header-background-color);
+
+  .filter-input {
+    margin-right: 10px;
+  }
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+
+  .mat-mdc-progress-spinner {
+    width: 50px !important;
+    height: 50px !important;
+    margin-top: 20px;
+  }
+}
+
+.create-btn {
+  height: 56px;
+}
+
+.username {
+  cursor: pointer;
+}
+
+@media screen and (max-width: $small) {
+  .filter-container {
+    flex-wrap: wrap;
+
+  .create-btn,
+  .filter-input {
+      width: calc(50% - 10px);
+    }
+  }
+}
+

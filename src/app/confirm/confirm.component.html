@@ -1,0 +1,5 @@
+<div class="dialog">
+  <h2 md-dialog-content>{{data.message| translate}}</h2>
+  <button class="btn" mat-raised-button color="warn" (click)="confirmDialogRef.close()">{{ 'Cancel' | translate }}</button>
+  <button class="btn" mat-raised-button [mat-dialog-close]="data" cdkFocusInitial color="primary">{{ 'Confirm' | translate }}</button>
+</div>
