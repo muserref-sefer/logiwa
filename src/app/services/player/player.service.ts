@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 export interface Player {
   id: number;
@@ -22,8 +23,8 @@ export interface Player {
   providedIn: 'root',
 })
 export class PlayerService {
-  private baseURL = `https://api.balldontlie.io/v1/players`;
-  private token = `d3d43432-3b6e-428f-b2aa-d758c1507de7`;
+  private apiURL = environment.apiURL;
+  private token = environment.token;
 
   constructor(private http: HttpClient) {}
 
@@ -35,7 +36,7 @@ export class PlayerService {
     return this.http.get<{
       data: Player[];
       meta: { next_cursor: number; per_page: number };
-    }>(`${this.baseURL}${query}`, {
+    }>(`${this.apiURL}${query}`, {
       headers: header,
     });
   }

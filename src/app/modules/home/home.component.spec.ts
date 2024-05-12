@@ -11,8 +11,8 @@ import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
 import { of } from 'rxjs';
+import { PlayerService } from '../../services/player/player.service';
 import { DialogComponent } from '../dialog/dialog.component';
-import { PlayerService } from '../services/player/player.service';
 import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {

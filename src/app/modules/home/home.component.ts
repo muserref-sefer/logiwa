@@ -4,10 +4,10 @@ import { PageEvent } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Sort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { Player, PlayerService } from '../../services/player/player.service';
 import { AlertComponent } from '../alert/alert.component';
 import { ConfirmComponent } from '../confirm/confirm.component';
 import { DialogComponent } from '../dialog/dialog.component';
-import { Player, PlayerService } from '../services/player/player.service';
 
 @Component({
   selector: 'app-home',

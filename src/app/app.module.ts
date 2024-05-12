@@ -8,15 +8,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { RouterOutlet } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AlertComponent } from './alert/alert.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConfirmComponent } from './confirm/confirm.component';
-import { DialogComponent } from './dialog/dialog.component';
-import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
+import { AlertComponent } from './modules/alert/alert.component';
+import { ConfirmComponent } from './modules/confirm/confirm.component';
+import { DialogComponent } from './modules/dialog/dialog.component';
+import { HomeComponent } from './modules/home/home.component';
+import { NavbarComponent } from './modules/navbar/navbar.component';
+import { ThemeToggleComponent } from './modules/theme-toggle/theme-toggle.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

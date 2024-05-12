@@ -4,8 +4,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
+import { NavbarComponent } from './modules/navbar/navbar.component';
+import { ThemeToggleComponent } from './modules/theme-toggle/theme-toggle.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
