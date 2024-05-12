@@ -2,6 +2,11 @@
   <span>Logiwa</span>
   <div class="switchers">
     <app-theme-toggle></app-theme-toggle>
-    <button mat-icon-button class="language-switcher" (click)="switchLanguage(translate.currentLang == 'tr' ? 'en' : 'tr')">{{ translate.currentLang == 'tr' ? 'en' : 'tr' }}</button>
+    <button
+      mat-icon-button
+      class="language-switcher"
+      (click)="switchLanguage(translate.currentLang === 'tr' ? 'en' : 'tr')">
+      {{ translate.currentLang === 'tr' ? 'en' : 'tr' }}
+    </button>
   </div>
 </mat-toolbar>

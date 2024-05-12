@@ -9,11 +9,14 @@ $small: 576px;
   display: table;
   width: 100%;
 
-  tr, td, th {
+  tr,
+  td,
+  th {
     color: var(--main-content-color);
   }
 
-  td,th {
+  td,
+  th {
     border-color: var(--border-color);
     min-width: 160px;
     vertical-align: middle !important;
@@ -23,7 +26,7 @@ $small: 576px;
     min-width: 30px;
     padding: 0;
     background-color: var(--header-background-color);
-  
+
     .mat-icon {
       color: #fff;
       margin: 0;
@@ -31,7 +34,7 @@ $small: 576px;
   }
 }
 
-.mat-elevation-z8 {    
+.mat-elevation-z8 {
   overflow-x: auto;
 }
 
@@ -82,10 +85,9 @@ $small: 576px;
   .filter-container {
     flex-wrap: wrap;
 
-  .create-btn,
-  .filter-input {
+    .create-btn,
+    .filter-input {
       width: calc(50% - 10px);
     }
   }
 }
-

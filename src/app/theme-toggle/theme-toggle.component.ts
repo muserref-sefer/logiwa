@@ -6,7 +6,6 @@ import { ThemeService } from '../services/theme/theme.service';
   templateUrl: './theme-toggle.component.html',
   styleUrls: ['./theme-toggle.component.scss'],
 })
-
 export class ThemeToggleComponent {
   isDarkMode: boolean;
 

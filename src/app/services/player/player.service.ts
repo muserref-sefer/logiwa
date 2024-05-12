@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { Observable } from 'rxjs';
 
-export interface Player{
+export interface Player {
   id: number;
   first_name: string;
   last_name: string;
@@ -11,7 +11,7 @@ export interface Player{
   height: string;
   weight: string;
   team: {
-    name: string
+    name: string;
   };
   draft_year: string;
   draft_number: number;
@@ -19,21 +19,25 @@ export interface Player{
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class PlayerService {
-  private baseURL = `https://api.balldontlie.io/v1/players`
-  private token = `d3d43432-3b6e-428f-b2aa-d758c1507de7`
+  private baseURL = `https://api.balldontlie.io/v1/players`;
+  private token = `d3d43432-3b6e-428f-b2aa-d758c1507de7`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getPlayers(query: string): Observable<{ data: any, meta: any }> {
-    let header = new HttpHeaders().set(
-      "Authorization",
-      this.token
-    );
-    return this.http.get<{ data: any, meta: any }>(`${this.baseURL}${query}`, {headers:header})
+  getPlayers(query: string): Observable<{
+    data: Player[];
+    meta: { next_cursor: number; per_page: number };
+  }> {
+    const header = new HttpHeaders().set('Authorization', this.token);
+    return this.http.get<{
+      data: Player[];
+      meta: { next_cursor: number; per_page: number };
+    }>(`${this.baseURL}${query}`, {
+      headers: header,
+    });
   }
 
   searchPlayerByHeight(filterValue: string, players: Player[]): Player[] {
@@ -66,11 +70,13 @@ export class PlayerService {
       return isAsc ? a - b : b - a;
     }
 
-    throw new Error('Types of a and b should be either both strings or both numbers.');
+    throw new Error(
+      'Types of a and b should be either both strings or both numbers.'
+    );
   }
 
   sortData(sort: Sort, players: Player[]): Player[] {
-    return players.slice().sort((a, b) => {
+    const data = players.slice().sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'full_name':
@@ -93,6 +99,8 @@ export class PlayerService {
           return 0;
       }
     });
+
+    return data;
   }
 
   searchPlayer(filterValue: string, players: Player[]): Player[] {
@@ -101,7 +109,11 @@ export class PlayerService {
       const team = player.team.name.toLowerCase();
       const country = player.country.toLowerCase();
 
-      return fullName.includes(filterValue) || team.includes(filterValue) || country.includes(filterValue);
+      return (
+        fullName.includes(filterValue) ||
+        team.includes(filterValue) ||
+        country.includes(filterValue)
+      );
     });
   }
 }

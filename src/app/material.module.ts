@@ -1,5 +1,5 @@
 // material.module.ts
-import { ModuleWithProviders, NgModule } from "@angular/core";
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,8 +16,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
@@ -28,7 +27,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatTableModule } from "@angular/material/table";
+import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -51,7 +50,6 @@ const mm = [
   MatIconModule,
   MatInputModule,
   MatListModule,
-  MatMenuModule,
   MatProgressBarModule,
   MatProgressSpinnerModule,
   MatRadioModule,
@@ -68,26 +66,21 @@ const mm = [
   MatTreeModule,
   MatNativeDateModule,
   MatPaginatorModule,
-  MatTableModule
-
-]
+  MatTableModule,
+];
 
 @NgModule({
-    imports: [ ...mm ],
-    exports: [...mm
-    ],
-    providers: [     
-    ]
+  imports: [...mm],
+  exports: [...mm],
+  providers: [],
 })
 export class MaterialModule {
-    constructor(public matIconRegistry: MatIconRegistry) {
-        // matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
-    }
+  constructor(public matIconRegistry: MatIconRegistry) {}
 
-    static forRoot(): ModuleWithProviders<MaterialModule> {
-        return {
-            ngModule: MaterialModule,
-            providers: [MatIconRegistry]
-        }
-    }
+  static forRoot(): ModuleWithProviders<MaterialModule> {
+    return {
+      ngModule: MaterialModule,
+      providers: [MatIconRegistry],
+    };
+  }
 }

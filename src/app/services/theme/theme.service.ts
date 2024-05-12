@@ -13,9 +13,6 @@ export class ThemeService {
   setDarkMode(isDarkMode: boolean) {
     this.darkMode = isDarkMode;
 
-    document.body.setAttribute(
-      'data-theme',
-      isDarkMode ? 'dark' : 'light'
-    );
+    document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
   }
 }

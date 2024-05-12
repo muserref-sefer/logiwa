@@ -6,9 +6,8 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-
 export class NavbarComponent {
-  currentLanguage = "en";
+  currentLanguage = 'en';
 
   constructor(public translate: TranslateService) {
     translate.setDefaultLang('en');
