@@ -1,5 +1,11 @@
 # logiwa
 
+Dark Mode (Turkish)
+<img width="1680" alt="image" src="https://github.com/muserref-sefer/logiwa/assets/10621067/eab8b597-c36f-4c54-bb0c-24653f233f10">
+
+Light Mode (English)
+<img width="1680" alt="Screen Shot 2024-05-13 at 15 35 55" src="https://github.com/muserref-sefer/logiwa/assets/10621067/dc8980a0-5d52-4a32-802d-24bf72324b37">
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
 
 ## Development server
