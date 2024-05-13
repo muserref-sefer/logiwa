@@ -123,7 +123,7 @@ export class HomeComponent implements OnInit {
       data: {
         player: player
           ? { ...player }
-          : { id: this.players.length, team: { name: '' } },
+          : { id: this.players.length + 1, team: { name: '' } },
         type,
       },
     });
